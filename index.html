@@ -18,7 +18,7 @@
       tr :first-child {
         text-align: right;
       }
-      tr :first-child::after {
+      tbody tr :first-child::after {
         content: " →";
       }
       tr :nth-child(2) {
@@ -32,6 +32,9 @@
   <body>
     <table>
       <thead>
+        <tr>
+          <td colspan="2" id="userAgent"></td>
+        </tr>
         <tr>
           <td>Property</td>
           <td>Value</td>
@@ -74,6 +77,10 @@
           <td>screen.pixelDepth</td>
           <td id="pixelDepth"></td>
         </tr>
+        <!-- <tr>
+          <td>window.navigator.userAgent</td>
+          <td id="userAgent"></td>
+        </tr> -->
       </tbody>
     </table>
     <script>
@@ -90,6 +97,8 @@
           document.getElementById("availHeight").innerHTML = screen.availHeight;
           document.getElementById("colorDepth").innerHTML = screen.colorDepth;
           document.getElementById("pixelDepth").innerHTML = screen.pixelDepth;
+          document.getElementById("userAgent").innerHTML =
+            window.navigator.userAgent;
         }
 
         window.addEventListener("resize", update);
