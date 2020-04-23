@@ -28,6 +28,7 @@
         border-top: 1px solid darkgray;
       }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js"></script>
   </head>
   <body>
     <table>
@@ -41,6 +42,14 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>Bowser browser</td>
+          <td id="browser"></td>
+        </tr>
+        <tr>
+          <td>Bowser os</td>
+          <td id="os"></td>
+        </tr>
         <tr>
           <td>window.devicePixelRatio</td>
           <td id="devicePixelRatio"></td>
@@ -86,7 +95,10 @@
     <script>
       (function () {
         function update() {
-          console.log("iiodhc");
+          document.getElementById("browser").innerHTML =
+            bowser.name + " " + bowser.version;
+          document.getElementById("os").innerHTML =
+            bowser.osname + " " + bowser.osversion;
           document.getElementById("devicePixelRatio").innerHTML =
             window.devicePixelRatio;
           document.getElementById("innerWidth").innerHTML = window.innerWidth;
