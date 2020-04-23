@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screencheck</title>
+    <style>
+      body {
+        font-size: 1.3em;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      table {
+        margin: auto;
+      }
+      td {
+        padding: 0.25em;
+      }
+      tr :first-child {
+        text-align: right;
+      }
+      tr :first-child::after {
+        content: " →";
+      }
+      tr :nth-child(2) {
+        font-weight: bold;
+      }
+      td {
+        border-top: 1px solid darkgray;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <td>Property</td>
+          <td>Value</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>window.devicePixelRatio</td>
+          <td id="devicePixelRatio"></td>
+        </tr>
+        <tr>
+          <td>window.innerWidth</td>
+          <td id="innerWidth"></td>
+        </tr>
+        <tr>
+          <td>window.innerHeight</td>
+          <td id="innerHeight"></td>
+        </tr>
+        <tr>
+          <td>screen.width</td>
+          <td id="width"></td>
+        </tr>
+        <tr>
+          <td>screen.height</td>
+          <td id="height"></td>
+        </tr>
+        <tr>
+          <td>screen.availWidth</td>
+          <td id="availWidth"></td>
+        </tr>
+        <tr>
+          <td>screen.availHeight</td>
+          <td id="availHeight"></td>
+        </tr>
+        <tr>
+          <td>screen.colorDepth</td>
+          <td id="colorDepth"></td>
+        </tr>
+        <tr>
+          <td>screen.pixelDepth</td>
+          <td id="pixelDepth"></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      (() => {
+        function update() {
+          console.log("iiodhc");
+          document.getElementById("devicePixelRatio").innerHTML =
+            window.devicePixelRatio;
+          document.getElementById("innerWidth").innerHTML = window.innerWidth;
+          document.getElementById("innerHeight").innerHTML = window.innerHeight;
+          document.getElementById("width").innerHTML = screen.width;
+          document.getElementById("height").innerHTML = screen.height;
+          document.getElementById("availWidth").innerHTML = screen.availWidth;
+          document.getElementById("availHeight").innerHTML = screen.availHeight;
+          document.getElementById("colorDepth").innerHTML = screen.colorDepth;
+          document.getElementById("pixelDepth").innerHTML = screen.pixelDepth;
+        }
+
+        window.addEventListener("resize", update);
+        update();
+      })();
+    </script>
+  </body>
+</html>
